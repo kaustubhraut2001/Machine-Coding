@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 function Infinitescroll({renderListItems ,textContent,getData,listData}){
 
@@ -12,8 +12,14 @@ function Infinitescroll({renderListItems ,textContent,getData,listData}){
 
 	} , [textContent]);
 
+	const renderList = useCallback(()=>{
+
+		},[]);
+
 	return (
-	<div>Infinitescroll</div>
+	<div>
+		{renderList()}
+	</div>
   )
 }
 

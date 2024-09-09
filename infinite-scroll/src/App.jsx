@@ -13,6 +13,12 @@ function App() {
 
   },[]);
 
+  const renderItem = useCallback(({title} , key , ref)=>{
+    <div key={key}>
+      {title}
+    </div>
+  } , []);
+
   const getData = useCallback((query , pageNo)=>{
     return new Promise(async (resolve , reject)=>{
       try{
@@ -40,24 +46,16 @@ function App() {
     });
 
 
-
-
   },[]);
   return (
     <>
       <input type="text" placeholder="search" value={textContent} onChange={handleInputChange}/>
-      {/* <infinitescroll
-      renderListItems = {""}
-      textContent={textContent}
-      getData={getData}
-      listData={""}
 
-      /> */}
       <Infinitescroll
-        renderListItems = {""}
+        renderListItems = {renderItem}
         textContent={textContent}
         getData={getData}
-        listData={""}
+        listData={apiData}
       />
     </>
   )
