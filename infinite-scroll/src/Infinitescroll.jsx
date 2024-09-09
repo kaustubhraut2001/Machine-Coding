@@ -13,7 +13,9 @@ function Infinitescroll({renderListItems ,textContent,getData,listData}){
 	} , [textContent]);
 
 	const renderList = useCallback(()=>{
-
+		return listData.map((item , index)=>(
+			 renderListItems(item, index , null)
+		))
 		},[]);
 
 	return (
